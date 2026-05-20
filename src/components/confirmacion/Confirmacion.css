@@ -1,0 +1,41 @@
+.confirm-container {
+  max-width: 400px;
+  margin: 40px auto;
+  text-align: center;
+  background: #ffffff;
+  padding: 25px 20px;
+  border-radius: 16px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Título principal */
+.confirm-container h2 {
+  font-size: 26px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Texto de fecha y hora */
+.confirm-container p {
+  font-size: 18px;
+  margin: 6px 0;
+  color: #444;
+}
+
+/* Botón volver con estética suave */
+.confirm-container button {
+  margin-top: 20px;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(0, 89, 255, 1); /* verde suave */
+  color: white; /* verde más oscuro */
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 0 6px rgba(0, 128, 0, 0.25);
+  transition:0.2s;
+}
+
+.confirm-container button:hover {
+  background-color: rgb(99, 152, 252);;
+}

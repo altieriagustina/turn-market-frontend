@@ -1,0 +1,41 @@
+[
+  {
+    "imagen": "https://media.istockphoto.com/id/1471478144/es/foto/sonriente-joven-negra-doctora-psic%C3%B3loga-consultando-a-una-mujer-europea-en-el-interior-de-una.jpg?s=612x612&w=0&k=20&c=_iIAZmXXB5yv1axI4C-Pry3QG-g5nLHzxc8nCY4AxGA=",
+    "profesion": "Psicologia"
+  },
+
+  {
+    "imagen": "https://comunidadprofesional.com.ar/wp-content/uploads/2022/11/KINE2.jpg",
+    "profesion": "Kinesiologia"
+  },
+
+  {
+    "imagen": "https://cardiavant.com/wp-content/uploads/nutricionista.jpg",
+    "profesion": "Nutricionista"
+  },
+
+  {
+    "imagen": "https://oralita-uploads.s3.amazonaws.com/images/dental-hygiene-concept-with-tooth.jpg",
+    "profesion": "Dentista"
+  },
+
+  {
+    "imagen": "https://forjandoelfuturo.com.ar/wp-content/uploads/2021/12/peluqueria.jpg",
+    "profesion": "Peluqueria"
+  },
+
+  {
+    "imagen": "https://escuelaelbs.com/wp-content/uploads/tiene-futuro-ser-tatuador.jpg",
+    "profesion": "Tatuadores"
+  },
+
+  {
+    "imagen": "https://www.eluniversal.com.co/resizer/v2/plomero-profesional-mas-de-8000-personas-capacitadas-gratis-T3TSFNJVWRCE3ARUA7AC7WL4KI.jpg?auth=37b40a08056b54067d40d589979424c32ddf8ddd0dae4b1aaf585cb9d62bbe6f&smart=true&width=1200&height=800&quality=70",
+    "profesion": "Plomeros"
+  },
+
+  {
+    "imagen": "https://www.cementosinka.com.pe/wp-content/uploads/2023/09/2-Tipos-de-albanileria-Simple-armada-y-reforzada.jpg",
+    "profesion": "Albañiles"
+  }
+]

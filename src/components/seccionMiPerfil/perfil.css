@@ -1,0 +1,64 @@
+.contenedor-perfil {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.contenedor-caja-perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    box-shadow: 0px 0px 2px rgb(155, 155, 155);
+    border-radius: 10px;
+    width: 450px;
+    height: 500px;
+    padding: 20px;
+    margin: auto;
+}
+
+.contenedor-datos-txt {
+    background-color: rgb(212, 234, 255);
+    border-radius: 20px;
+    width: 370px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 7px 0px 7px 15px;
+}
+
+input:disabled {
+  background-color: rgb(212, 234, 255);
+  border: none;
+}
+
+.contenedor-btn {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btn-actualizar {
+    width: 370px;
+    height: 40px;
+    margin: 5px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(0, 123, 255);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-eliminar {
+    width: 370px;
+    height: 40px;
+    margin: 5px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(220, 53, 69);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}

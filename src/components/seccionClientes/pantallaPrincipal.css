@@ -1,0 +1,204 @@
+body {
+  margin: 0;
+  box-sizing: border-box;
+  background-color: rgb(248, 248, 248);
+}
+
+/*CONTENEDOR DE PANTALA PRINCIPAL*/
+.contenedor-pantalla {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  padding-top: 20px;
+}
+
+/*CONTENEDOR DE TODAS LAS CARDS*/
+.contenedor-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 30px;
+}
+
+/*CONTENEDOR DEL BUSCADOR*/
+.contenedor-buscador {
+  margin-top: 20px;
+  width: 60%;
+  height: 60px;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+  border-radius: 25px;
+  /* border: 1px solid rgb(209, 208, 208); */
+  box-shadow: 0px 1px 5px rgb(212, 212, 212);
+}
+
+/*BUSCADOR*/
+.buscador-profesiones {
+  width: 650px;
+  height: 30px;
+  border-radius: 10px;
+  /* border: 1px solid rgb(209, 208, 208); */
+  box-shadow: 0px 1px 5px rgb(160, 160, 160);
+  background-color: rgb(255, 255, 255);
+  font-weight: bold;
+  padding: 3px 10px;
+  border: none;
+}
+
+/*BOTON BUSCAR*/
+.contenedor-buscador button {
+  width: 100px;
+  height: 37px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0px 1px 3px rgb(255, 255, 255);
+  background-color: rgba(0, 89, 255, 1);
+  color: rgba(255, 255, 255, 1);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/*HOVER DEL BOTON*/
+.contenedor-buscador button:hover {
+  background-color: rgb(99, 152, 252);
+}
+
+.link {
+  text-decoration: none;
+}
+
+.link:visited {
+  color: black;
+}
+
+.contenedor-turnos {
+  text-align: center;
+  margin: 30px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 1px 5px rgb(175, 175, 175);
+}
+
+ul {
+  text-decoration: none;
+  list-style-type: none;
+  margin-top: 10px;
+}
+
+li {
+  font-size: 17px;
+}
+
+/*BOTON CERRAR SESION*/
+.btn-logout {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  z-index: 2;
+}
+
+.btn-logout-responsive {
+  display: none;
+}
+
+.btn-logout .botones {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  object-fit: contain;
+  display: block;
+}
+
+.btn-logout .botones:hover {
+  transform: scale(1.1);
+}
+
+.logo-icon-principal {
+  width: 44px;
+  /* height: auto;
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  object-fit: contain;
+  z-index: 2; */
+}
+
+/*DISEÑO RESPONSIVE*/
+
+/*TABLET*/
+
+@media (max-width: 1000px) {
+  .contenedor-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contenedor-buscador {
+    width: 70vw;
+    margin-top: 8%;
+  }
+
+  .contenedor-buscador button {
+    display: none;
+  }
+
+  .btn-logout {
+    top: 14px;
+    right: 16px;
+    gap: 12px;
+  }
+
+  .btn-logout .botones {
+    width: 36px;
+    height: 36px;
+  }
+
+  .logo-icon-principal {
+    width: 40px;
+    top: 14px;
+    left: 16px;
+  }
+}
+
+/*CELULAR*/
+
+@media (max-width: 640px) {
+  .contenedor-cards {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .contenedor-buscador button {
+    display: none;
+  }
+
+  .contenedor-buscador {
+    width: 88vw;
+    height: 60px;
+    margin-top: 8%;
+    padding: 0 8px;
+  }
+
+  .btn-logout {
+    top: 12px;
+    right: 12px;
+    gap: 10px;
+  }
+
+  .btn-logout .botones {
+    width: 34px;
+    height: 34px;
+  }
+
+  .logo-icon-principal {
+    width: 36px;
+    top: 12px;
+    left: 12px;
+  }
+}

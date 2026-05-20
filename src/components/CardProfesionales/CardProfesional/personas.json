@@ -1,0 +1,154 @@
+[
+  {
+    "profesion": "plomeros",
+    "imagen": "https://www.shutterstock.com/image-vector/young-smiling-man-avatar-brown-600nw-2261401207.jpg",
+    "nombre": "Julian Fernandez",
+    "precio": "$300 - $500"
+  },
+  {
+    "profesion": "plomeros",
+    "imagen": "https://images.icon-icons.com/1879/PNG/512/iconfinder-1-avatar-2754574_120513.png",
+    "nombre": "Jose Henrique",
+    "precio": "$300 - $500"
+  },
+  {
+    "profesion": "plomeros",
+    "imagen": "https://cdn1.iconfinder.com/data/icons/avatar-157/64/Backwards_boy_avatar_cap_hat_man_personas_icon-512.png",
+    "nombre": "Juan Chois",
+    "precio": "$300 - $500"
+  },
+
+  {
+    "profesion": "dentista",
+    "imagen": "https://www.shutterstock.com/image-vector/young-smiling-man-avatar-3d-600nw-2124054758.jpg",
+    "nombre": "Pablo Gonzalez",
+    "precio": "$400 - $600"
+  },
+  {
+    "profesion": "dentista",
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ6HXUhMoJw8xX3ghMAUkS9W-QUX_pmXqg7Q&s",
+    "nombre": "Valentin Gomez",
+    "precio": "$400 - $600"
+  },
+
+  {
+    "profesion": "dentista",
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAYavyeMZAeUSMvG3mcRq95tSmEU6POt5yUA&s",
+    "nombre": "Javier Garcia",
+    "precio": "$400 - $600"
+  },
+
+  {
+    "profesion": "nutricionista",
+    "imagen": "https://cdni.iconscout.com/illustration/premium/thumb/mujer-de-negocios-illustration-svg-download-png-4498296.png",
+    "nombre": "Luciana Rodriguez",
+    "precio": "$450 - $650"
+  },
+  {
+    "profesion": "nutricionista",
+    "imagen": "https://marketplace.canva.com/L0KUc/MAF_fqL0KUc/1/tl/canva-person-icon-for-avatar-MAF_fqL0KUc.png",
+    "nombre": "Gimena Rios",
+    "precio": "$450 - $650"
+  },
+  {
+    "profesion": "nutricionista",
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJbL70fxGm_zeerYjdPtylceY4cZxK7aL4ig&s",
+    "nombre": "Lucas Gimenez",
+    "precio": "$450 - $650"
+  },
+
+  {
+    "profesion": "psicologia",
+    "imagen": "https://static.vecteezy.com/system/resources/previews/019/001/681/non_2x/people-avatar-color-symbol-png.png",
+    "nombre": "Fernanda Blanco",
+    "precio": "$500 - $650"
+  },
+  {
+    "profesion": "psicologia",
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAvOkLZ0GchgH1meupNBPBlsdxieydDTpRWg&s",
+    "nombre": "Simon Buos",
+    "precio": "$500 - $650"
+  },
+  {
+    "profesion": "psicologia",
+    "imagen": "https://marketplace.canva.com/ZZmXs/MAF_fhZZmXs/1/tl/canva-person-icon-for-avatar-MAF_fhZZmXs.png",
+    "nombre": "Stella Hernas",
+    "precio": "$500 - $650"
+  },
+
+  {
+    "profesion": "kinesiologia",
+    "imagen": "https://img.freepik.com/vector-premium/avatar-mujer-sonriente_937492-6135.jpg?semt=ais_hybrid&w=740&q=80",
+    "nombre": "Lucia Herrera",
+    "precio": "$250 - $350"
+  },
+  {
+    "profesion": "kinesiologia",
+    "imagen": "https://static.wixstatic.com/media/8707d7_7e6d98c54d2e41a980544a37345bbea6~mv2.png/v1/fill/w_280,h_280,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Persona%20pensando.png",
+    "nombre": "Lucio Fuentes",
+    "precio": "$250 - $350"
+  },
+  {
+    "profesion": "kinesiologia",
+    "imagen": "https://media.baamboozle.com/uploads/images/1719213/c68b98e4-9b3c-4ff0-9f4e-32a30558a774-thumbnail.png",
+    "nombre": "Margarita Gons",
+    "precio": "$250 - $350"
+  },
+
+  {
+    "profesion": "peluqueria",
+    "imagen": "https://png.pngtree.com/png-clipart/20250317/original/pngtree-a-cartoon-style-male-avatar-designed-with-happy-and-approachable-look-png-image_20675075.png",
+    "nombre": "Julian Rodriguez",
+    "precio": "$600 - $650"
+  },
+  {
+    "profesion": "peluqueria",
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmNPkaDO8f3TAvQP7dNvI0ZuzSqIj11Hmm6Q&s",
+    "nombre": "Matias Rojas",
+    "precio": "$600 - $650"
+  },
+  {
+    "profesion": "peluqueria",
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQbHCaYHAOr0Pl-4ROAINXONSxb4Gb7lLhMA&s",
+    "nombre": "Maria Carmen",
+    "precio": "$600 - $650"
+  },
+
+  {
+    "profesion": "tatuadores",
+    "imagen": "https://png.pngtree.com/png-clipart/20240321/original/pngtree-avatar-job-student-flat-portrait-of-man-png-image_14639683.png",
+    "nombre": "Felipe Rojas",
+    "precio": "$900 - $1100"
+  },
+  {
+    "profesion": "tatuadores",
+    "imagen": "https://em-content.zobj.net/source/emojione/151/person-in-steamy-room_emoji-modifier-fitzpatrick-type-1-2_1f9d6-1f3fb_1f3fb.png",
+    "nombre": "Lucrecia Sops",
+    "precio": "$900 - $1100"
+  },
+  {
+    "profesion": "tatuadores",
+    "imagen": "https://aixplain.com/wp-content/themes/aix/images/persona/characters/portrait/developer.png",
+    "nombre": "Nahuel Lis",
+    "precio": "$900 - $1100"
+  },
+
+  {
+    "profesion": "albañiles",
+    "imagen": "https://png.pngtree.com/png-clipart/20231019/original/pngtree-user-profile-avatar-png-image_13369988.png",
+    "nombre": "Luciano Rodriguez",
+    "precio": "$450 - $650"
+  },
+  {
+    "profesion": "albañiles",
+    "imagen": "https://static.vecteezy.com/system/resources/thumbnails/011/675/370/small/man-avatar-image-for-profile-png.png",
+    "nombre": "Omar Jule",
+    "precio": "$450 - $650"
+  },
+  {
+    "profesion": "albañiles",
+    "imagen": "https://static.vecteezy.com/system/resources/thumbnails/011/459/673/small/people-avatar-icon-png.png",
+    "nombre": "Leandro Pades",
+    "precio": "$450 - $650"
+  }
+]

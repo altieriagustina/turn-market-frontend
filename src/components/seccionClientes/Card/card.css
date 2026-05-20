@@ -1,0 +1,50 @@
+/*CONTENEDOR DE CADA CARD*/
+.contenedor-card {
+    border-radius: 15px;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    box-shadow: 0px 0px 3px rgb(143, 143, 143);
+    /* margin: 10px 40px; */
+    margin: 15px 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contenedor-card:hover {
+    transform: scale(1.08);
+    opacity: 0.8;
+}
+
+/*IMAGEN CARD*/
+.imagen-card {
+    width: 100%;
+    height: 70%;
+}
+
+/*TEXTO CARD*/
+.texto-profesion-card {
+    font-family: Inter, sans-serif;
+    color: black;
+}
+
+
+/*DISEÑO RESPONSIVE*/
+
+@media (max-width: 640px) {
+    .contenedor-card {
+    width: 80vw;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    } 
+
+    .imagen-card {
+        width: 20%;
+        height: 80%;
+        margin-right: 20px;
+        margin-left: 10px;
+        border-radius: 10px
+    } 
+}

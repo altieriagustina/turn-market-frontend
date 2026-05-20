@@ -1,0 +1,260 @@
+{
+  "usuarios": [
+    {
+      "id": "fb73",
+      "nombre": "a",
+      "apellido": "a",
+      "telefono": "1234567890",
+      "email": "aa@gmail.com",
+      "password": "1234abcd",
+      "confirmPassword": "1234abcd",
+      "profesion": "",
+      "rangoPrecio": "",
+      "role": "cliente"
+    },
+    {
+      "id": "1c08",
+      "nombre": "Agustina",
+      "apellido": "Altieri",
+      "telefono": "2983001000",
+      "email": "agus@gmail.com",
+      "password": "1234abcd",
+      "confirmPassword": "1234abcd",
+      "profesion": "dentista",
+      "rangoPrecio": "0-499",
+      "role": "profesional"
+    },
+    {
+      "id": "8cce",
+      "nombre": "Vivi",
+      "apellido": "Blasco",
+      "telefono": "2587412589",
+      "email": "vb@gmail.com",
+      "password": "7777aaaa",
+      "confirmPassword": "7777aaaa",
+      "profesion": "",
+      "rangoPrecio": "",
+      "role": "cliente"
+    },
+    {
+      "id": "bcd3",
+      "nombre": "Juan",
+      "apellido": "Perez",
+      "telefono": "1234567890",
+      "email": "jp@gmail.com",
+      "password": "1111aaaa",
+      "confirmPassword": "1111aaaa",
+      "profesion": "",
+      "rangoPrecio": "",
+      "role": "cliente"
+    },
+    {
+      "id": "c881",
+      "nombre": "Rafa",
+      "apellido": "Ruggeri",
+      "telefono": "2365474747",
+      "email": "rr@gmail.com",
+      "password": "1111aaaa",
+      "confirmPassword": "7777qqqq",
+      "profesion": "",
+      "rangoPrecio": "",
+      "role": "cliente"
+    },
+    {
+      "id": "a1e5",
+      "nombre": "Maria",
+      "apellido": "Perez",
+      "telefono": "2984657896",
+      "email": "mg@gmail.com",
+      "password": "3333zzzz",
+      "confirmPassword": "3333zzzz",
+      "profesion": "psicologia",
+      "rangoPrecio": "1000-1999",
+      "role": "profesional"
+    },
+    {
+      "id": "856c",
+      "nombre": "Agustina",
+      "apellido": "Ramirez",
+      "telefono": "4587254789",
+      "email": "ar@gmail.com",
+      "password": "9999ssss",
+      "confirmPassword": "9999ssss",
+      "profesion": "kinesiologia",
+      "rangoPrecio": "500-999",
+      "role": "profesional"
+    },
+    {
+      "id": "ea62",
+      "nombre": "Lautaro ",
+      "apellido": "Fernández",
+      "telefono": "2485323232",
+      "email": "lf@gmail.com",
+      "password": "5555zzzz",
+      "confirmPassword": "5555zzzz",
+      "profesion": "nutricionista",
+      "rangoPrecio": "2000+",
+      "role": "profesional"
+    },
+    {
+      "id": "1a3a",
+      "nombre": "Camila ",
+      "apellido": "Pereyra",
+      "telefono": "2984326885",
+      "email": "cp@gmail.com",
+      "password": "4444mmmm",
+      "confirmPassword": "4444mmmm",
+      "profesion": "dentista",
+      "rangoPrecio": "2000+",
+      "role": "profesional"
+    },
+    {
+      "id": "d4d3",
+      "nombre": "Mario",
+      "apellido": "Gomez",
+      "telefono": "2547635478",
+      "email": "mgg@gmail.com",
+      "password": "0000xxxx",
+      "confirmPassword": "0000xxxx",
+      "profesion": "peluqueria",
+      "rangoPrecio": "500-999",
+      "role": "profesional"
+    },
+    {
+      "id": "f378",
+      "nombre": "Florencia",
+      "apellido": "Alvarez",
+      "telefono": "2365478962",
+      "email": "faa@gmail.com",
+      "password": "1234qqqq",
+      "confirmPassword": "1234qqqq",
+      "profesion": "tatuadores",
+      "rangoPrecio": "0-499",
+      "role": "profesional"
+    },
+    {
+      "id": "9dbe",
+      "nombre": "Ignacio",
+      "apellido": "Rodriguez",
+      "telefono": "2983123458",
+      "email": "ir@gmail.com",
+      "password": "0000qqqq",
+      "confirmPassword": "0000qqqq",
+      "profesion": "plomeros",
+      "rangoPrecio": "2000+",
+      "role": "profesional"
+    },
+    {
+      "id": "8592",
+      "nombre": "Pedro",
+      "apellido": "Flores",
+      "telefono": "1157896547",
+      "email": "pf@gmail.com",
+      "password": "9999oooo",
+      "confirmPassword": "9999oooo",
+      "profesion": "albañiles",
+      "rangoPrecio": "1000-1999",
+      "role": "profesional"
+    }
+  ],
+  "turnos": [
+    {
+      "id": "d953",
+      "profesionalId": "1c08",
+      "clienteId": "8cce",
+      "nombre": "Vivi",
+      "apellido": "Blasco",
+      "fecha": "2027-10-27T03:00:00.000Z",
+      "horario": "14:00",
+      "estado": "confirmado"
+    },
+    {
+      "id": "8dba",
+      "profesionalId": "a1e5",
+      "clienteId": "fb73",
+      "nombre": "a",
+      "apellido": "a",
+      "fecha": "2025-12-08",
+      "horario": "08:00",
+      "estado": "confirmado",
+      "mensaje": ""
+    },
+    {
+      "id": "d641",
+      "profesionalId": "1a3a",
+      "clienteId": "fb73",
+      "nombre": "a",
+      "apellido": "a",
+      "fecha": "2025-12-10",
+      "horario": "12:00",
+      "estado": "confirmado",
+      "mensaje": "Consulta"
+    },
+    {
+      "id": "9bfb",
+      "profesionalId": "d4d3",
+      "clienteId": "1a3a",
+      "nombre": "Camila ",
+      "apellido": "Pereyra",
+      "fecha": "2025-12-14",
+      "horario": "14:00",
+      "estado": "confirmado",
+      "mensaje": ""
+    },
+    {
+      "id": "c144",
+      "profesionalId": "9dbe",
+      "clienteId": "1a3a",
+      "nombre": "Camila ",
+      "apellido": "Pereyra",
+      "fecha": "2025-12-10",
+      "horario": "13:00",
+      "estado": "pendiente",
+      "mensaje": ""
+    },
+    {
+      "id": "4a64",
+      "profesionalId": "d4d3",
+      "clienteId": "d4d3",
+      "nombre": "Mario",
+      "apellido": "Gomez",
+      "fecha": "2025-12-17",
+      "horario": "14:00",
+      "estado": "confirmado",
+      "mensaje": "Tintura"
+    },
+    {
+      "id": "76da",
+      "profesionalId": "d4d3",
+      "clienteId": "bcd3",
+      "nombre": "Juan",
+      "apellido": "Perez",
+      "fecha": "2025-12-17",
+      "horario": "14:00",
+      "estado": "pendiente",
+      "mensaje": ""
+    },
+    {
+      "id": "644e",
+      "profesionalId": "d4d3",
+      "clienteId": "c881",
+      "nombre": "Rafa",
+      "apellido": "Ruggeri",
+      "fecha": "2025-12-17",
+      "horario": "14:00",
+      "estado": "pendiente",
+      "mensaje": "Corte"
+    },
+    {
+      "id": "9d4a",
+      "profesionalId": "1c08",
+      "clienteId": "fb73",
+      "nombre": "a",
+      "apellido": "a",
+      "fecha": "2025-12-16",
+      "horario": "11:00",
+      "estado": "confirmado",
+      "mensaje": "Consulta"
+    }
+  ]
+}

@@ -60,7 +60,6 @@ export const SeccionHistorial = () => {
             </div>
 
 
-
            {solicitudesTurnos.length === 0 ? (
                 <p>No tenés turnos pendientes</p>
             ) :
@@ -91,10 +90,6 @@ export const SeccionHistorial = () => {
                         </div>
                     </div>
                 ))}
-
-
-
-
         </div>
     )
 }

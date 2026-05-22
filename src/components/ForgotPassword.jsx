@@ -9,11 +9,9 @@ const ForgotPassword = () => {
   // Estado para email y nueva contraseña
   const [datos, setDatos] = useState({
     email: "",
+    code: "",
     password: ""
-  });
-
-  // Rol seleccionado
-  const [role, setRole] = useState("cliente");
+  });;
 
   // Error visual
   const [error, setError] = useState("");
@@ -32,6 +30,51 @@ const ForgotPassword = () => {
     return regex.test(pass);
   };
 
+  const handleSendCode = async () => {
+
+    if (!datos.email) {
+      setError("Ingresá un email");
+      return;
+    }
+
+    try {
+
+      const response = await fetch(
+        "http://localhost:3000/auth/forgot-password",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: datos.email,
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.message || "Error al enviar código");
+        return;
+      }
+
+      await Swal.fire({
+        title: "Código enviado",
+        text: "Revisá tu correo electrónico.",
+        icon: "success",
+        confirmButtonColor: "rgba(0, 89, 255, 1)"
+      });
+
+    } catch (err) {
+      console.error(err);
+
+      setError(
+        "No se pudo enviar el código."
+      );
+    }
+  };
+
   // SUBMIT – actualiza la contraseña en db.json
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,38 +86,29 @@ const ForgotPassword = () => {
     }
 
     try {
-      // Buscar usuario por email
-      const resp = await fetch(
-        `http://localhost:4000/usuarios?email=${encodeURIComponent(datos.email)}`
+
+      const response = await fetch(
+        "http://localhost:3000/auth/reset-password",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: datos.email,
+            code: datos.code,
+            password: datos.password,
+          }),
+        }
       );
-      const data = await resp.json();
 
-      if (data.length === 0) {
-        setError("No existe un usuario con ese correo.");
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.message || "Error al actualizar contraseña");
         return;
       }
 
-      const usuario = data[0];
-
-      // Verificar si coincide el rol seleccionado
-      if (usuario.role !== role) {
-        await Swal.fire({
-          title: "Rol incorrecto",
-          text: "El rol seleccionado no coincide con tu tipo de cuenta.",
-          icon: "error",
-          confirmButtonColor: "rgba(0, 89, 255, 1)"
-        });
-        return;
-      }
-
-      // PATCH —> actualiza solo la contraseña
-      await fetch(`http://localhost:4000/usuarios/${usuario.id}`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ password: datos.password })
-      });
-
-      // Alerta de sweetalert2 que muestra cambio exitoso
       await Swal.fire({
         title: "Contraseña actualizada",
         text: "Tu contraseña fue cambiada correctamente.",
@@ -82,12 +116,14 @@ const ForgotPassword = () => {
         confirmButtonColor: "rgba(0, 89, 255, 1)"
       });
 
-      // Una vez termina el proceso redirige a login
       navegar("/");
 
     } catch (err) {
       console.error(err);
-      setError("Ocurrió un error. Intenta nuevamente.");
+
+      setError(
+        "Ocurrió un error. Intenta nuevamente."
+      );
     }
   };
 
@@ -106,28 +142,6 @@ const ForgotPassword = () => {
       {/* Card */}
       <main className="login-card">
 
-        {/* Roles */}
-        <div className="role-section">
-          <p className="role-label">Selecciona tu rol</p>
-
-          <div className="role-toggle">
-
-            <Boton
-              active={role === "cliente"}
-              onClick={() => setRole("cliente")}
-              icono={<img src="./src/assets/person.svg" alt="cliente" className="btn-icon" />}
-              nombreBtn="Cliente"
-            />
-
-            <Boton
-              active={role === "profesional"}
-              onClick={() => setRole("profesional")}
-              icono={<img src="./src/assets/briefcase.svg" alt="profesional" className="btn-icon" />}
-              nombreBtn="Profesional"
-            />
-          </div>
-        </div>
-
         {/* Form */}
         <form className="login-form" onSubmit={handleSubmit}>
 
@@ -141,6 +155,35 @@ const ForgotPassword = () => {
               placeholder="nombre@correo.com"
               name="email"
               value={datos.email}
+              onChange={handleChange}
+            />
+          </div>
+
+          <button
+            type="button"
+            className="primary-btn"
+            onClick={handleSendCode}
+            style={{ marginBottom: "15px" }}
+          >
+            Enviar código
+          </button>
+
+          {/* Código de recuperación */}
+          <label className="field-label">Código de recuperación</label>
+
+          <div className="input-wrap">
+            <img
+              src="./src/assets/forgot.svg"
+              alt="codigo"
+              className="input-icon"
+            />
+
+            <input
+              className="input-field"
+              type="text"
+              placeholder="Ingresá el código recibido"
+              name="code"
+              value={datos.code}
               onChange={handleChange}
             />
           </div>

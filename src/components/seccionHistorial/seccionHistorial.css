@@ -74,6 +74,18 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
+#turno-aceptado {
+    background-color: rgb(208, 241, 201);
+}
+
+#turno-rechazado {
+   background-color: rgb(255, 230, 230);
+}
+
+#turno-pendiente {
+    background-color: rgb(230, 244, 255);
+}
+
 .contenedor-card-turno p {
     color: #333;
     font-size: 1rem;

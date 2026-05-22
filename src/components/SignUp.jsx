@@ -325,8 +325,8 @@ const SignUp = () => {
               <img
                 src={
                   showPassword
-                    ? "./src/assets/eye-slash.svg"
-                    : "./src/assets/eye.svg"
+                    ? "./src/assets/eye.svg"
+                    : "./src/assets/eye-slash.svg"
                 }
                 alt="toggle password"
                 className="toggle-password-icon"

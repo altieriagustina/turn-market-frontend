@@ -41,11 +41,11 @@ const PanelProfesional = () => {
 
   // Función para actualizar estado en DB
   //modifica solamente la clave "estado" al valor que tenga nuevoEstado y en la url filtro el turno por id para cambiar solo el turno que corresponda
-  const actualizarTurno = async (id, nuevoEstado) => {
+  const actualizarTurno = async (id, nuevoEstado, estimacion = {}) => {
     await fetch(`http://localhost:3000/turn/turnos/${id}/estado`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ estado: nuevoEstado })
+      body: JSON.stringify({ estado: nuevoEstado, ...estimacion })
     });
 
     //elimina de la lista el turno al que quiero actualizarle el estado. (crea un nuevo array sin el id que sacamos)
@@ -71,7 +71,7 @@ const PanelProfesional = () => {
   };
 
   // Funciones para pasar a los componentes
-  const manejarAceptar = id => actualizarTurno(id, "confirmado");
+  const manejarAceptar = (id, estimacion) => actualizarTurno(id, "confirmado", estimacion);
   const manejarRechazar = id => actualizarTurno(id, "rechazado");
 
    const manejarRestaurarRechazado = async (id) => {

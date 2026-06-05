@@ -7,6 +7,18 @@ import { useNavigate } from 'react-router-dom'
 
 
 
+const formatearFechaHora = (fechaHora) => {
+    const fecha = new Date(fechaHora);
+    return fecha.toLocaleString('es-AR', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+    });
+};
+
 export const SeccionHistorial = () => {
 
     const { id } = useParams()
@@ -67,7 +79,7 @@ export const SeccionHistorial = () => {
                     <div className='contenedor-turnos'>
                         <div className='contenedor-card-turno' id='turno-pendiente'>
                             <p>{turno.profesional.nombre} {turno.profesional.apellido}</p>
-                            <p>{turno.fecha_hora}</p>
+                            <p>{formatearFechaHora(turno.fecha_hora)}</p>
                             <p>{turno.estado}</p>
                         </div>
                     </div>
@@ -76,7 +88,7 @@ export const SeccionHistorial = () => {
                     <div className='contenedor-turnos'>
                         <div className='contenedor-card-turno' id='turno-rechazado'>
                             <p>{turno.profesional.nombre} {turno.profesional.apellido}</p>
-                            <p>{turno.fecha_hora}</p>
+                            <p>{formatearFechaHora(turno.fecha_hora)}</p>
                             <p>{turno.estado}</p>
                         </div>
                     </div>
@@ -85,7 +97,7 @@ export const SeccionHistorial = () => {
                     <div className='contenedor-turnos'>
                         <div className='contenedor-card-turno' id='turno-aceptado'>
                             <p>{turno.profesional.nombre} {turno.profesional.apellido}</p>
-                            <p>{turno.fecha_hora}</p>
+                            <p>{formatearFechaHora(turno.fecha_hora)}</p>
                             <p>{turno.estado}</p>
                         </div>
                     </div>

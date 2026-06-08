@@ -21,6 +21,7 @@ const TarjetaSolicitudesTurnos = ({ solicitudes, onAceptar, onRechazar, onCancel
               onCancelar={onCancelar}
             />
           ))
+          
         )}
       </div>
     </div>

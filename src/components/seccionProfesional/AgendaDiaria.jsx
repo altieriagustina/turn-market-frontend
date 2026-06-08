@@ -35,7 +35,7 @@ const ElementoAgenda = ({ cita }) => {
       <div className="detalles-agenda">
         <div className="cliente-agenda">
          <p> Cliente: {cita.cliente.nombre} {cita.cliente.apellido}</p>
-          <p>Motivo: {cita.motivo}</p>
+          <p>Descripcion: {cita.motivo}</p>
         </div>
       </div>
       <div className="estado-agenda">

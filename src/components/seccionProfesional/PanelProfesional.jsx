@@ -37,7 +37,7 @@ const PanelProfesional = () => {
     traerTurnos();
   }, [idProfesional]);
 
-  console.log(solicitudesTurnos);
+  console.log("solicitud turno:", solicitudesTurnos);
 
   // Función para actualizar estado en DB
   //modifica solamente la clave "estado" al valor que tenga nuevoEstado y en la url filtro el turno por id para cambiar solo el turno que corresponda

@@ -43,6 +43,7 @@ const ElementoSolicitudTurno = ({ solicitud, onAceptar, onRechazar, onCancelar }
 
   return (
     <div className="item-solicitud">
+      {console.log('Solicitud:', solicitud) }
 
       <div className="info-cliente">
         <div className="avatar">{solicitud.avatar}</div>
@@ -52,7 +53,7 @@ const ElementoSolicitudTurno = ({ solicitud, onAceptar, onRechazar, onCancelar }
           </div>
           <div className="detalles-cita">
             <span className="chip-tiempo">{formatearFechaHora(solicitud.fecha_hora)}</span>
-            <span className="chip-tiempo">Motivo: {solicitud.motivo}</span>
+            <span className="chip-tiempo">Descripcion: {solicitud.motivo}</span>
             {solicitud.descripcionServicio && (
               <span className="chip-tiempo" style={{ backgroundColor: '#dbeafe', color: '#1d4ed8', borderRadius: '6px', padding: '2px 8px' }}>
                 📋 {solicitud.descripcionServicio}

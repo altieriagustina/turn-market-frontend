@@ -106,6 +106,7 @@ const Horarios = ({ selectedDate, onTimeSelect }) => {
       duracionEstimada: null,
       bufferDescanso: 0,
       horaFin: null,
+      motivo: descripcionServicio,
     };
 
     const res = await fetch("http://localhost:3000/turn", {
@@ -183,11 +184,13 @@ const Horarios = ({ selectedDate, onTimeSelect }) => {
             </button>
           </form>
 
-          {descripcionConfirmada && (
-            <p style={{ color: 'green', marginTop: '8px', fontWeight: 500 }}>
-              ✓ Descripción guardada: "{descripcionServicio}"
-            </p>
-          )}
+          <div className='descripcion-confirmada'>
+            {descripcionConfirmada && (
+              <p style={{ color: 'green', marginTop: '8px', fontWeight: 500 }}>
+                ✓ Descripción guardada: "{descripcionServicio}"
+              </p>
+            )}
+          </div>
         </div>
 
         <h3 className='mensaje-seleccionar'>Seleccioná un horario</h3>

@@ -246,11 +246,11 @@ const SignUp = () => {
                   aria-label="profesion"
                 >
                   <option value="">Seleccioná tu profesión</option>
-                  <option value="psicologia">Psicología</option>
-                  <option value="kinesiologia">Kinesiología</option>
-                  <option value="nutricionista">Nutricionista</option>
-                  <option value="dentista">Dentista</option>
-                  <option value="peluqueria">Peluquería</option>
+                  <option value="psicologos">Psicologos</option>
+                  <option value="kinesiologos">Kinesiologos</option>
+                  <option value="nutricionistas">Nutricionistas</option>
+                  <option value="dentistas">Dentistas</option>
+                  <option value="peluqueros">Peluqueros</option>
                   <option value="tatuadores">Tatuadores</option>
                   <option value="plomeros">Plomeros</option>
                   <option value="albañiles">Albañiles</option>

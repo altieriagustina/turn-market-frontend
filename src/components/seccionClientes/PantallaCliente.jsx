@@ -67,7 +67,7 @@ export const PantallaCliente = () => {
                 </div>
                 <div className='contenedor-buscador'>
 
-                    <input className='buscador-profesiones' onChange={handleChange} placeholder='Buscar una profesion...' type='text'></input>
+                    <input className='buscador-profesiones' onChange={handleChange} placeholder='Buscar una profesión' type='text'></input>
                     <button>Buscar</button>
                 </div>
 

@@ -141,6 +141,7 @@
   color: var(--muted);
   font-size: 14px;
   margin-bottom: 4px;
+  text-align: left;
 }
 
 .input-wrap {

@@ -61,6 +61,12 @@
   height: 50px;
 }
 
+#direccion-icon {
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+}
+
 .site-title {
   font-size: 28px;
   font-weight: 700;

@@ -131,8 +131,8 @@ const Horarios = ({ selectedDate, onTimeSelect }) => {
     if (!descripcionConfirmada) {
       Swal.fire({
         icon: 'warning',
-        title: 'Falta la descripción',
-        text: 'Por favor escribí y confirmá la descripción del servicio antes de elegir un horario.',
+        title: 'Falta la descripción y dirección',
+        text: 'Por favor escribí y confirmá la descripción del servicio y tu dirección antes de elegir un horario.',
         confirmButtonColor: '#3085d6',
       });
       return;
@@ -167,7 +167,7 @@ const Horarios = ({ selectedDate, onTimeSelect }) => {
         </h3>
 
         <h3>
-          Describí el servicio que necesitás y luego seleccioná un horario
+          Describí brevemente el motivo del turno y direccion de tu domicilio para que el profesional pueda prepararse para tu visita.
         </h3>
 
         <div className='contenedor-input'>
@@ -176,11 +176,11 @@ const Horarios = ({ selectedDate, onTimeSelect }) => {
               className="input-motivo"
               type="text"
               onChange={handleChange}
-              placeholder='Descripción del servicio que necesitás...'
+              placeholder='Descripción del servicio que necesitás y direccion...'
               value={descripcionInput}
             />
             <button className='btn-enviar' type='submit'>
-              Confirmar descripción
+              Confirmar
             </button>
           </form>
 

@@ -12,6 +12,7 @@ const SignUp = () => {
     password: "",
     confirmPassword: "",
     profesion: "",
+    direccion: "",
     precio_min: "",
     precio_max: "",
   });
@@ -101,6 +102,7 @@ const SignUp = () => {
         profesion: role === "profesional" ? form.profesion : undefined,
         precio_min: role === "profesional" ? form.precio_min : undefined,
         precio_max: role === "profesional" ? form.precio_max : undefined,
+        direccion: role === "profesional" ? form.direccion : undefined,
       }; // acá camnbio solo role por rol: role para que coicida con el BE
 
 
@@ -140,6 +142,7 @@ const SignUp = () => {
         password: "",
         confirmPassword: "",
         profesion: "",
+        direccion: "",
         precioMin: "",
         precioMax: "",
       });
@@ -283,6 +286,19 @@ const SignUp = () => {
                   onChange={handleChange}
                   required
                 />
+              </div>
+
+              <label className="field-label">Dirección</label>
+              <div className="input-wrap">
+                <img src="./src/assets/direccion.svg" alt="direccion" className="input-icon" id="direccion-icon" />
+                <input
+                  className="input-field"
+                  type="text"
+                  placeholder="Dirección (calle, número)"
+                  name="direccion"
+                  value={form.direccion}
+                  onChange={handleChange}
+                  required />
               </div>
 
             </>

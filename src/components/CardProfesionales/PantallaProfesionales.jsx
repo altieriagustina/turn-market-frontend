@@ -56,7 +56,7 @@ export const PantallaProfesionales = () => {
               id={p.id}
               nombre={`${p.user?.nombre} ${p.user?.apellido}`}
               precio={`${p.precio_min} - $${p.precio_max}`}
-              direccion={p.direccion}
+              direccion={p.direccion || "No especificada"}
             />
           ))
         )}

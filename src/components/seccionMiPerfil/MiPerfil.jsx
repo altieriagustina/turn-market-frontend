@@ -142,7 +142,7 @@ export const MiPerfil = () => {
     return (
       <div className='contenedor-perfil'>
         <div className='contenedor-caja-perfil'>
-          <p>El perfil fue eliminado</p>
+          <p className='perfil-eliminado'>El perfil fue eliminado</p>
           <Link className='link' to="/"> <button className='btn-volver-historial'>← Volver a inicio</button></Link>
         </div>
       </div>

@@ -1,8 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Boton from "./botonRoles/Boton";
 
 const SignUp = () => {
+
+  // Hook para redirigir al usuario después del registro
+  const navigate = useNavigate();
+
   // estado para los campos
   const [form, setForm] = useState({
     nombre: "",
@@ -134,6 +138,12 @@ const SignUp = () => {
 
       setSuccess(true);
       setError("");
+      
+      // Redirigir al usuario a la página de login después de un registro exitoso
+      setTimeout(() => {
+        navigate("/");
+      }, 1500); // Redirige después de 1.5 segundos para que el usuario vea el mensaje de éxito
+      
       setForm({
         nombre: "",
         apellido: "",

@@ -63,3 +63,24 @@ input:disabled {
     font-size: 16px;
     cursor: pointer;
 }
+
+.perfil-eliminado {
+    font-family: Inter;
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.btn-volver-historial {
+    font-family: Inter;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    width: 150px;
+    height: 40px;
+    background-color: rgb(235, 233, 233);
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}

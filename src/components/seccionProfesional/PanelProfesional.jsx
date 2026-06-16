@@ -8,6 +8,7 @@ import TarjetaTurnosRechazados from "./TarjetaTurnosRechazados";
 import "./PanelProfesional.css"
 import Logout from "../Logout";
 import { Link } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 
 const PanelProfesional = () => {
@@ -41,37 +42,103 @@ const PanelProfesional = () => {
 
   // Función para actualizar estado en DB
   //modifica solamente la clave "estado" al valor que tenga nuevoEstado y en la url filtro el turno por id para cambiar solo el turno que corresponda
+  //devuelve { ok, status, data } para que quien la llama pueda reaccionar si la actualización falló (ej: conflicto de horario)
   const actualizarTurno = async (id, nuevoEstado, estimacion = {}) => {
-    await fetch(`http://localhost:3000/turn/turnos/${id}/estado`, {
+    const res = await fetch(`http://localhost:3000/turn/turnos/${id}/estado`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ estado: nuevoEstado, ...estimacion })
     });
 
+    let data = null;
+    try {
+      data = await res.json();
+    } catch (error) {
+      data = null;
+    }
+
+    if (!res.ok) {
+      return { ok: false, status: res.status, data };
+    }
+
     //elimina de la lista el turno al que quiero actualizarle el estado. (crea un nuevo array sin el id que sacamos)
     const actualizarEstados = (turnos) => turnos.filter(t => t.id !== id);
     //guardo el turno que estoy moviendo
-    const turno = solicitudesTurnos.find(t => t.id === id);
+    const turno = solicitudesTurnos.find(t => t.id === id) || turnosRechazados.find(t => t.id === id);
 
     //uso el parametro del actualizarTurno y segun el estado seteo el turno que guarde anteriormente con find()
     //con prev dejo los turnos que hay, y aparte agrego el nuevo turno cambiando su estado
     if (nuevoEstado === "confirmado") {
-      setCitasDiarias(prev => [...prev, { ...turno, estado: "confirmado" }]);
-      setSolicitudesTurnos(prev => actualizarEstados(prev, "confirmado"));
+      setCitasDiarias(prev => [...prev, { ...turno, ...estimacion, estado: "confirmado" }]);
+      setSolicitudesTurnos(prev => actualizarEstados(prev));
     }
     if (nuevoEstado === "rechazado") {
       setTurnosRechazados(prev => [...prev, { ...turno, estado: "rechazado" }]);
-      setSolicitudesTurnos(prev => actualizarEstados(prev, "rechazado"));
+      setSolicitudesTurnos(prev => actualizarEstados(prev));
     }
 
     if (nuevoEstado === "pendiente") {
       setSolicitudesTurnos(prev => [...prev, { ...turno, estado: "pendiente" }]);
       setTurnosRechazados(prev => prev.filter(t => t.id !== id));
     }
+
+    return { ok: true, status: res.status, data };
   };
 
   // Funciones para pasar a los componentes
-  const manejarAceptar = (id, estimacion) => actualizarTurno(id, "confirmado", estimacion);
+  const manejarAceptar = async (id, estimacion) => {
+    const resultado = await actualizarTurno(id, "confirmado", estimacion);
+
+    if (resultado.ok) return;
+
+    // Conflicto de horario: el backend detectó que se superpone con otro turno ya confirmado
+    if (resultado.status === 409) {
+      const mensaje = resultado.data?.message || "El horario elegido se superpone con otro turno ya confirmado.";
+
+      const eleccion = await Swal.fire({
+        icon: 'warning',
+        title: 'Horario no disponible',
+        text: mensaje,
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'Rechazar este turno',
+        denyButtonText: 'Proponer otro horario',
+        cancelButtonText: 'Volver',
+        confirmButtonColor: '#dc2626',
+        denyButtonColor: '#6366f1',
+      });
+
+      if (eleccion.isConfirmed) {
+        const rechazo = await actualizarTurno(id, "rechazado", {
+          motivoRechazo: `Turno no disponible: ${mensaje}`,
+        });
+        if (rechazo.ok) {
+          Swal.fire({
+            icon: 'success',
+            title: 'Turno rechazado',
+            text: 'Se rechazó el turno indicando que el horario no estaba disponible.',
+            timer: 2200,
+            showConfirmButton: false,
+          });
+        }
+      } else if (eleccion.isDenied) {
+        Swal.fire({
+          icon: 'info',
+          title: 'Próximamente',
+          text: 'Proponer un nuevo horario todavía no está disponible. Por ahora podés rechazar el turno o coordinar el cambio manualmente con el cliente.',
+        });
+      }
+      return;
+    }
+
+    // Cualquier otro error inesperado
+    Swal.fire({
+      icon: 'error',
+      title: 'No se pudo confirmar el turno',
+      text: resultado.data?.message || 'Ocurrió un error al confirmar el turno. Intentá nuevamente.',
+    });
+  };
+
   const manejarRechazar = id => actualizarTurno(id, "rechazado");
 
    const manejarRestaurarRechazado = async (id) => {

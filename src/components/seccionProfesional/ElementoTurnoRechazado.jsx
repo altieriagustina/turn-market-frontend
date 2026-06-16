@@ -1,5 +1,23 @@
 import React from 'react';
 
+const formatearTiempo = (turno) => {
+  const fecha = new Date(turno.fecha_hora);
+  const fechaStr = fecha.toLocaleDateString('es-AR', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  });
+  const horaInicio = fecha.toLocaleTimeString('es-AR', {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+  });
+
+  return turno.horaFin
+    ? `${fechaStr} • ${horaInicio} - ${turno.horaFin}`
+    : `${fechaStr} • ${horaInicio}`;
+};
+
 const ElementoTurnoRechazado = ({ turno, onRestaurar }) => {
   return (
     <div className="item-rechazado">
@@ -8,7 +26,7 @@ const ElementoTurnoRechazado = ({ turno, onRestaurar }) => {
         <div className="detalles-cliente">
           <div className="nombre-cliente">{turno.cliente.nombre} {turno.cliente.apellido}</div>
           <div className="detalles-cita">
-            {turno.fecha_hora}
+            {formatearTiempo(turno)}
           </div>
           <div className="fecha-rechazo">
             {turno.fechaRechazo}

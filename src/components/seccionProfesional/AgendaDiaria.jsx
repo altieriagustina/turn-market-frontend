@@ -25,24 +25,29 @@ const AgendaDiaria = ({ citasDiarias }) => {
   );
 };
 
-const formatFechaHoraLocal = (fechaHora) => {
-  const fecha = new Date(fechaHora);
-  const dia = fecha.toLocaleDateString('es-AR', {
+const formatearTiempo = (cita) => {
+  const fecha = new Date(cita.fecha_hora);
+  const fechaStr = fecha.toLocaleDateString('es-AR', {
     day: '2-digit',
     month: '2-digit',
-    year: 'numeric'
+    year: 'numeric',
   });
-  const hh = String(fecha.getHours()).padStart(2, '0');
-  const mm = String(fecha.getMinutes()).padStart(2, '0');
-  return `${dia} ${hh}:${mm}`;
+  const horaInicio = fecha.toLocaleTimeString('es-AR', {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+  });
+
+  return cita.horaFin
+    ? `${fechaStr} • ${horaInicio} - ${cita.horaFin}`
+    : `${fechaStr} • ${horaInicio}`;
 };
 
 const ElementoAgenda = ({ cita }) => {
-  console.log('Cita:', cita);
   return (
     <div className="item-agenda">
       <div className="tiempo-agenda">
-        {formatFechaHoraLocal(cita.fecha_hora)}
+        {formatearTiempo(cita)}
       </div>
       <div className="detalles-agenda">
         <div className="cliente-agenda">

@@ -45,7 +45,7 @@ const Login = () => {
         setError(""); // OK
 
         // Función para consultar el si el usuario existe en el backend
-        const response = await fetch("http://localhost:3000/auth/login", {
+        const response = await fetch("https://turn-market-backend.onrender.com/auth/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

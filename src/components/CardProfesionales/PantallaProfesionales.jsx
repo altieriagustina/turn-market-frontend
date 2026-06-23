@@ -15,7 +15,7 @@ export const PantallaProfesionales = () => {
   //traigo las personas de la db y la seteo al estado
   let traerUsuarios = async () => {
     const response = await fetch(
-      `http://localhost:3000/professional-profile?profesion=${profesion}`); 
+      `https://turn-market-backend.onrender.com/professional-profile?profesion=${profesion}`); 
     const personas = await response.json();
     setPersonas(personas)
   }

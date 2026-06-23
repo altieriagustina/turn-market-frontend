@@ -42,13 +42,13 @@ const Horarios = ({ selectedDate, onTimeSelect }) => {
     const fetchTurnosConfirmados = async () => {
       try {
         // Primero obtenemos el perfil para conseguir el user ID del profesional
-        const profileRes = await fetch(`http://localhost:3000/professional-profile/${profesionalId}`);
+        const profileRes = await fetch(`https://turn-market-backend.onrender.com/professional-profile/${profesionalId}`);
         const profile = await profileRes.json();
         const usuarioId = profile.user?.id;
         if (!usuarioId) return;
 
         // Ahora sí buscamos los turnos con el user ID correcto
-        const res = await fetch(`http://localhost:3000/turn/professional/${usuarioId}`);
+        const res = await fetch(`https://turn-market-backend.onrender.com/turn/professional/${usuarioId}`);
         const data = await res.json();
 
         const fechaSeleccionada = formatDate(selectedDate);
@@ -112,7 +112,7 @@ const Horarios = ({ selectedDate, onTimeSelect }) => {
       motivo: descripcionServicio,
     };
 
-    const res = await fetch("http://localhost:3000/turn", {
+    const res = await fetch("https://turn-market-backend.onrender.com/turn", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(turno)

@@ -25,7 +25,7 @@ const PanelProfesional = () => {
   // traigo los turnos de la base de datos de Turn
   useEffect(() => {
     const traerTurnos = async () => {
-      const res = await fetch(`http://localhost:3000/turn/professional/${idProfesional}`);
+      const res = await fetch(`https://turn-market-backend.onrender.com/turn/professional/${idProfesional}`);
       const data = await res.json();
       console.log(data)
 
@@ -44,7 +44,7 @@ const PanelProfesional = () => {
   //modifica solamente la clave "estado" al valor que tenga nuevoEstado y en la url filtro el turno por id para cambiar solo el turno que corresponda
   //devuelve { ok, status, data } para que quien la llama pueda reaccionar si la actualización falló (ej: conflicto de horario)
   const actualizarTurno = async (id, nuevoEstado, estimacion = {}) => {
-    const res = await fetch(`http://localhost:3000/turn/turnos/${id}/estado`, {
+    const res = await fetch(`https://turn-market-backend.onrender.com/turn/turnos/${id}/estado`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ estado: nuevoEstado, ...estimacion })
@@ -147,7 +147,7 @@ const PanelProfesional = () => {
     if (!turno) return;
 
     //actualizo el estado a pendiente nuevamente
-    await fetch(`http://localhost:3000/turn/turnos/${id}/estado`, {
+    await fetch(`https://turn-market-backend.onrender.com/turn/turnos/${id}/estado`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ estado: "pendiente" })

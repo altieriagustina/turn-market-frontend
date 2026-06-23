@@ -14,7 +14,7 @@ export const Turnos = () => {
 
     useEffect(() => {
         const traerTurnos = async () => {
-            const res = await fetch("http://localhost:4000/turnos");
+            const res = await fetch("https://turn-market-backend.onrender.com/turnos");
             const data = await res.json();
 
             // comparo el id del profesional con el id del turno para que coincida y se le muestre a la persona que corresponde

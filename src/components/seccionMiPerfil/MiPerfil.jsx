@@ -18,7 +18,7 @@ export const MiPerfil = () => {
   //obtengo la info del usuario y, si es profesional, también su perfil profesional con dirección
   const traerDatosUsuario = async () => {
     try {
-      const res = await fetch(`http://localhost:3000/user/${idNum}`)
+      const res = await fetch(`https://turn-market-backend.onrender.com/user/${idNum}`)
       if (!res.ok) {
         setEliminado(true)
         return
@@ -31,7 +31,7 @@ export const MiPerfil = () => {
       setUsuario(data)
 
       if (data.rol === 'profesional') {
-        const perfilRes = await fetch(`http://localhost:3000/professional-profile/user/${idNum}`)
+        const perfilRes = await fetch(`https://turn-market-backend.onrender.com/professional-profile/user/${idNum}`)
         if (perfilRes.ok) {
           const perfilData = await perfilRes.json()
           setPerfilProfesional(perfilData)
@@ -68,7 +68,7 @@ export const MiPerfil = () => {
         return
       }
 
-      await fetch(`http://localhost:3000/user/${idNum}`, {
+      await fetch(`https://turn-market-backend.onrender.com/user/${idNum}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json'
@@ -82,7 +82,7 @@ export const MiPerfil = () => {
       })
 
       if (usuario.rol === 'profesional' && perfilProfesional?.id) {
-        await fetch(`http://localhost:3000/professional-profile/${perfilProfesional.id}`, {
+        await fetch(`https://turn-market-backend.onrender.com/professional-profile/${perfilProfesional.id}`, {
           method: 'PATCH',
           headers: {
             'Content-Type': 'application/json'
@@ -117,7 +117,7 @@ export const MiPerfil = () => {
     }
 
     try {
-      const res = await fetch(`http://localhost:3000/user/${idNum}`, {
+      const res = await fetch(`https://turn-market-backend.onrender.com/user/${idNum}`, {
         method: 'DELETE'
       })
 

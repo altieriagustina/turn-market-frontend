@@ -40,7 +40,7 @@ const ForgotPassword = () => {
     try {
 
       const response = await fetch(
-        "http://localhost:3000/auth/forgot-password",
+        "https://turn-market-backend.onrender.com/auth/forgot-password",
         {
           method: "POST",
           headers: {
@@ -88,7 +88,7 @@ const ForgotPassword = () => {
     try {
 
       const response = await fetch(
-        "http://localhost:3000/auth/reset-password",
+        "https://turn-market-backend.onrender.com/auth/reset-password",
         {
           method: "POST",
           headers: {

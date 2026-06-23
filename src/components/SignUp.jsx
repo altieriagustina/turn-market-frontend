@@ -117,7 +117,7 @@ const SignUp = () => {
       //   payload.precioMax = form.precioMax;
       // }
 
-      const res = await fetch('http://localhost:3000/user', { // Debería ser la URL de tu backend para crear usuarios
+      const res = await fetch('https://turn-market-backend.onrender.com/user', { // Debería ser la URL de tu backend para crear usuarios
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),

@@ -31,7 +31,7 @@ export const SeccionHistorial = () => {
 
     useEffect(() => {
         const traerTurnos = async () => {
-            const res = await fetch(`http://localhost:3000/turn/user/${idNum}`);
+            const res = await fetch(`https://turn-market-backend.onrender.com/turn/user/${idNum}`);
             console.log(res)
             const misTurnos = await res.json()
             console.log(misTurnos)

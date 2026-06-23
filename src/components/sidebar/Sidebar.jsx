@@ -23,7 +23,7 @@ export const Sidebar = () => {
 
                 <div className='contenedor-logo'>
                     <img
-                        src="./src/assets/repeat.svg"
+                        src="/repeat.svg"
                         alt="Logo Turn Market"
                         className="logo-icon-principal"
                     />

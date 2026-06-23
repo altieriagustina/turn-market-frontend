@@ -165,10 +165,10 @@ const SignUp = () => {
 
   return (
     <div>
-      <header className="login-header">
+          <header className="login-header">
         <div className="logo-circle">
           <img
-            src="./src/assets/repeat.svg"
+            src="/repeat.svg"
             alt="Logo Turn Market"
             className="logo-icon"
           />
@@ -183,13 +183,13 @@ const SignUp = () => {
             <Boton
               active={role === "cliente"}
               onClick={() => setRole("cliente")}
-              icono={<img src="/src/assets/person.svg" alt="Icono cliente" className="btn-icon" />}
+              icono={<img src="/person.svg" alt="Icono cliente" className="btn-icon" />}
               nombreBtn="Cliente"
             />
             <Boton
               active={role === "profesional"}
               onClick={() => setRole("profesional")}
-              icono={<img src="/src/assets/briefcase.svg" alt="Icono profesional" className="btn-icon" />}
+              icono={<img src="/briefcase.svg" alt="Icono profesional" className="btn-icon" />}
               nombreBtn="Profesional"
             />
           </div>
@@ -202,7 +202,7 @@ const SignUp = () => {
           {/* Nombre */}
           <label className="field-label">Nombre</label>
           <div className="input-wrap">
-            <img src="/src/assets/person.svg" alt="nombre" className="input-icon" />
+            <img src="/person.svg" alt="nombre" className="input-icon" />
             <input
               className="input-field"
               type="text"
@@ -217,7 +217,7 @@ const SignUp = () => {
           {/* Apellido */}
           <label className="field-label">Apellido</label>
           <div className="input-wrap">
-            <img src="/src/assets/person.svg" alt="apellido" className="input-icon" />
+            <img src="/person.svg" alt="apellido" className="input-icon" />
             <input
               className="input-field"
               type="text"
@@ -232,7 +232,7 @@ const SignUp = () => {
           {/* Teléfono */}
           <label className="field-label">Teléfono</label>
           <div className="input-wrap">
-            <img src="/src/assets/telephone.svg" alt="tel" className="input-icon" />
+            <img src="/telephone.svg" alt="tel" className="input-icon" />
             <input
               className="input-field"
               type="tel"
@@ -249,7 +249,7 @@ const SignUp = () => {
             <>
               <label className="field-label field-label--spaced">Profesión u Oficio</label>
               <div className="input-wrap select-wrap">
-                <img src="./src/assets/briefcase.svg" alt="profesion" className="input-icon" />
+                <img src="/briefcase.svg" alt="profesion" className="input-icon" />
                 <select
                   className="input-field select-field"
                   name="profesion"
@@ -273,7 +273,7 @@ const SignUp = () => {
               {/*Rango de precios */}
               <label className="field-label field-label--spaced">Rango de precio</label>
               <div className="input-wrap select-wrap">
-                <img src="./src/assets/wallet.svg" alt="rango precio" className="input-icon" />
+                <img src="/wallet.svg" alt="rango precio" className="input-icon" />
                 <input
                   className="input-field"
                   type="number"
@@ -286,7 +286,7 @@ const SignUp = () => {
               </div>
 
               <div className="input-wrap select-wrap">
-                <img src="./src/assets/wallet.svg" alt="rango precio" className="input-icon" />
+                <img src="/wallet.svg" alt="rango precio" className="input-icon" />
                 <input
                   className="input-field"
                   type="number"
@@ -300,7 +300,7 @@ const SignUp = () => {
 
               <label className="field-label">Dirección</label>
               <div className="input-wrap">
-                <img src="./src/assets/direccion.svg" alt="direccion" className="input-icon" id="direccion-icon" />
+                <img src="/direccion.svg" alt="direccion" className="input-icon" id="direccion-icon" />
                 <input
                   className="input-field"
                   type="text"
@@ -318,7 +318,7 @@ const SignUp = () => {
           {/* Email */}
           <label className="field-label">Correo electrónico</label>
           <div className="input-wrap">
-            <img src="/src/assets/envelope.svg" alt="email" className="input-icon" />
+            <img src="/envelope.svg" alt="email" className="input-icon" />
             <input
               className="input-field"
               type="email"
@@ -333,7 +333,7 @@ const SignUp = () => {
           {/* Contraseña */}
           <label className="field-label">Contraseña</label>
           <div className="input-wrap password-wrap">
-            <img src="/src/assets/lock.svg" alt="password" className="input-icon" />
+            <img src="/lock.svg" alt="password" className="input-icon" />
             <input
               className="input-field"
               type={showPassword ? "text" : "password"}
@@ -351,8 +351,8 @@ const SignUp = () => {
               <img
                 src={
                   showPassword
-                    ? "./src/assets/eye.svg"
-                    : "./src/assets/eye-slash.svg"
+                    ? "/eye.svg"
+                    : "/eye-slash.svg"
                 }
                 alt="toggle password"
                 className="toggle-password-icon"
@@ -363,7 +363,7 @@ const SignUp = () => {
           {/* Confirmar password */}
           <label className="field-label">Repetir contraseña</label>
           <div className="input-wrap">
-            <img src="/src/assets/lock.svg" alt="confirm" className="input-icon" />
+            <img src="/lock.svg" alt="confirm" className="input-icon" />
             <input
               className="input-field"
               type={showPassword ? "text" : "password"}
@@ -382,7 +382,7 @@ const SignUp = () => {
           {success && <p className="helper-text" style={{ color: "green", marginBottom: 8 }}>Registro exitoso.</p>}
 
           <button type="submit" className="primary-btn">
-            <img src="/src/assets/login.svg" alt="signup" className="btn-left-icon" />
+            <img src="/login.svg" alt="signup" className="btn-left-icon" />
             Crear cuenta
           </button>
 

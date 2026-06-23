@@ -161,7 +161,7 @@ const Login = () => {
             <header className="login-header">
                 <div className="logo-circle">
                     {/* Logo de la app */}
-                    <img src="./src/assets/repeat.svg" alt="Logo Turn Market" className="logo-icon" />
+                    <img src="/repeat.svg" alt="Logo Turn Market" className="logo-icon" />
                 </div>
 
                 {/* Título de la app */}
@@ -183,7 +183,7 @@ const Login = () => {
 
                             active={role === "cliente"}
                             onClick={() => setRole("cliente")}
-                            icono={<img src="./src/assets/person.svg" alt="Icono cliente" className="btn-icon" />}
+                            icono={<img src="/person.svg" alt="Icono cliente" className="btn-icon" />}
                             nombreBtn="Cliente"
                         />
 
@@ -191,7 +191,7 @@ const Login = () => {
                         <Boton
                             active={role === "profesional"}
                             onClick={() => setRole("profesional")}
-                            icono={<img src="./src/assets/briefcase.svg" alt="Icono profesional" className="btn-icon" />}
+                            icono={<img src="/briefcase.svg" alt="Icono profesional" className="btn-icon" />}
                             nombreBtn="Profesional"
                         />
                     </div>
@@ -208,7 +208,7 @@ const Login = () => {
                     <label className="field-label">Correo electrónico</label>
                     <div className="input-wrap">
                         {/* Icono enail */}
-                        <img src="./src/assets/envelope.svg" alt="email" className="input-icon" />
+                        <img src="/envelope.svg" alt="email" className="input-icon" />
                         <input
                             className="input-field"
                             type="email"
@@ -225,7 +225,7 @@ const Login = () => {
 
                         {/*Icono candado*/}
                         <img
-                            src="./src/assets/lock.svg"
+                            src="/lock.svg"
                             alt="password"
                             className="input-icon"
                         />
@@ -247,8 +247,8 @@ const Login = () => {
                             <img
                                 src={
                                     showPassword
-                                        ? "./src/assets/eye.svg"
-                                        : "./src/assets/eye-slash.svg"
+                                        ? "/eye.svg"
+                                        : "/eye-slash.svg"
                                 }
                                 alt="toggle password"
                                 className="toggle-password-icon"
@@ -264,7 +264,7 @@ const Login = () => {
 
                     {/* Boton principal de inicio de sesion */}
                     <button type="submit" className="primary-btn">
-                        <img src="./src/assets/login.svg" alt="login" className="btn-left-icon" />
+                        <img src="/login.svg" alt="login" className="btn-left-icon" />
                         Iniciar sesión
                     </button>
 

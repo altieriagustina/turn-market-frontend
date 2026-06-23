@@ -134,7 +134,7 @@ const ForgotPassword = () => {
       <header className="login-header">
         <div className="logo-circle">
           {/* Logo de la app */}
-          <img src="./src/assets/repeat.svg" alt="Logo Turn Market" className="logo-icon" />
+          <img src="/repeat.svg" alt="Logo Turn Market" className="logo-icon" />
         </div>
         <h1 className="site-title">Actualizá tu contraseña</h1>
       </header>
@@ -148,7 +148,7 @@ const ForgotPassword = () => {
           {/* Email */}
           <label className="field-label">Correo electrónico</label>
           <div className="input-wrap">
-            <img src="./src/assets/envelope.svg" alt="email" className="input-icon" />
+            <img src="/envelope.svg" alt="email" className="input-icon" />
             <input
               className="input-field"
               type="email"
@@ -173,7 +173,7 @@ const ForgotPassword = () => {
 
           <div className="input-wrap">
             <img
-              src="./src/assets/forgot.svg"
+              src="/forgot.svg"
               alt="codigo"
               className="input-icon"
             />
@@ -191,7 +191,7 @@ const ForgotPassword = () => {
           {/* Nueva contraseña */}
           <label className="field-label">Nueva contraseña</label>
           <div className="input-wrap">
-            <img src="./src/assets/lock.svg" alt="password" className="input-icon" />
+            <img src="/lock.svg" alt="password" className="input-icon" />
             <input
               className="input-field"
               type="password"
@@ -207,7 +207,7 @@ const ForgotPassword = () => {
 
           {/* Boton de actualizar */}
           <button type="submit" className="primary-btn">
-            <img src="./src/assets/forgot.svg" alt="guardar" className="btn-left-icon" />
+            <img src="/forgot.svg" alt="guardar" className="btn-left-icon" />
             Actualizar contraseña
           </button>
 

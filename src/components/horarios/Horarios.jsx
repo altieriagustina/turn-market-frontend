@@ -12,6 +12,16 @@ const formatDate = (date) => {
   return `${year}-${month}-${day}`;
 };
 
+const formatLocalISO = (date, timeStr) => {
+  const [hours, minutes] = timeStr.split(':').map(Number);
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  const hour = String(hours).padStart(2, '0');
+  const minute = String(minutes).padStart(2, '0');
+  return `${year}-${month}-${day}T${hour}:${minute}:00`;
+};
+
 const Horarios = ({ selectedDate, onTimeSelect }) => {
 
   const navigate = useNavigate();
@@ -54,7 +64,8 @@ const Horarios = ({ selectedDate, onTimeSelect }) => {
         const fechaSeleccionada = formatDate(selectedDate);
 
         const turnosDelDia = (data.confirmados || []).filter(turno => {
-          const fechaTurno = turno.fecha_hora.split('T')[0];
+          const fechaTurnoDate = new Date(turno.fecha_hora);
+          const fechaTurno = `${fechaTurnoDate.getFullYear()}-${String(fechaTurnoDate.getMonth() + 1).padStart(2, '0')}-${String(fechaTurnoDate.getDate()).padStart(2, '0')}`;
           return fechaTurno === fechaSeleccionada;
         });
 
@@ -104,7 +115,7 @@ const Horarios = ({ selectedDate, onTimeSelect }) => {
     const turno = {
       profesionalId: Number(profesionalId),
       clienteId: Number(usuario.id),
-      fecha_hora: `${formatDate(selectedDate)}T${timeStr}:00`,
+      fecha_hora: formatLocalISO(selectedDate, timeStr),
       descripcionServicio: descripcionServicio,
       duracionEstimada: null,
       bufferDescanso: 0,

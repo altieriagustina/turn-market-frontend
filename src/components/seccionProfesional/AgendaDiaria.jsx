@@ -28,15 +28,13 @@ const AgendaDiaria = ({ citasDiarias }) => {
 const formatearTiempo = (cita) => {
   const fecha = new Date(cita.fecha_hora);
 
-  // Extraemos día, mes y año directamente en formato UTC
-  const dia = String(fecha.getUTCDate()).padStart(2, '0');
-  const mes = String(fecha.getUTCMonth() + 1).padStart(2, '0'); // Los meses van de 0 a 11
-  const anio = fecha.getUTCFullYear();
+  const dia = String(fecha.getDate()).padStart(2, '0');
+  const mes = String(fecha.getMonth() + 1).padStart(2, '0'); // Los meses van de 0 a 11
+  const anio = fecha.getFullYear();
   const fechaStr = `${dia}/${mes}/${anio}`;
 
-  // Extraemos hora y minutos directamente en formato UTC
-  const horas = String(fecha.getUTCHours()).padStart(2, '0');
-  const minutos = String(fecha.getUTCMinutes()).padStart(2, '0');
+  const horas = String(fecha.getHours()).padStart(2, '0');
+  const minutos = String(fecha.getMinutes()).padStart(2, '0');
   const horaInicio = `${horas}:${minutos}`;
 
   return cita.horaFin

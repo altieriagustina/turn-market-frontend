@@ -3,35 +3,26 @@ import React, { useState } from 'react';
 const calcularHoraFin = (fechaHora, duracion, buffer) => {
   const fecha = new Date(fechaHora);
   const totalMinutos = duracion + buffer;
-  
-  // Usamos métodos UTC para añadir la duración sin que afecte la zona horaria local
-  fecha.setUTCMinutes(fecha.getUTCMinutes() + totalMinutos);
-  
-  const hh = String(fecha.getUTCHours()).padStart(2, '0');
-  const mm = String(fecha.getUTCMinutes()).padStart(2, '0');
+  fecha.setMinutes(fecha.getMinutes() + totalMinutos);
+  const hh = String(fecha.getHours()).padStart(2, '0');
+  const mm = String(fecha.getMinutes()).padStart(2, '0');
   return `${hh}:${mm}`;
 };
 
 const formatearFechaHora = (fechaHora) => {
   const fecha = new Date(fechaHora);
-  
-  // Extraemos componentes directamente en UTC
-  const dia = String(fecha.getUTCDate()).padStart(2, '0');
-  const mes = String(fecha.getUTCMonth() + 1).padStart(2, '0');
-  const anio = fecha.getUTCFullYear();
-  
-  const hh = String(fecha.getUTCHours()).padStart(2, '0');
-  const mm = String(fecha.getUTCMinutes()).padStart(2, '0');
-  
+  const dia = String(fecha.getDate()).padStart(2, '0');
+  const mes = String(fecha.getMonth() + 1).padStart(2, '0');
+  const anio = fecha.getFullYear();
+  const hh = String(fecha.getHours()).padStart(2, '0');
+  const mm = String(fecha.getMinutes()).padStart(2, '0');
   return `${dia}/${mes}/${anio} ${hh}:${mm}`;
 };
 
 const formatearHoraInicio = (fechaHora) => {
   const fecha = new Date(fechaHora);
-  
-  // Extraemos hora y minutos directamente en UTC
-  const hh = String(fecha.getUTCHours()).padStart(2, '0');
-  const mm = String(fecha.getUTCMinutes()).padStart(2, '0');
+  const hh = String(fecha.getHours()).padStart(2, '0');
+  const mm = String(fecha.getMinutes()).padStart(2, '0');
   return `${hh}:${mm}`;
 };
 

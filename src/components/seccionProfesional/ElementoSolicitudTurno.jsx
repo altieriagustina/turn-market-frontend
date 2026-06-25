@@ -1,29 +1,29 @@
 import React, { useState } from 'react';
 
 const calcularHoraFin = (fechaHora, duracion, buffer) => {
-  const fecha = new Date(fechaHora);
-  const totalMinutos = duracion + buffer;
-  fecha.setMinutes(fecha.getMinutes() + totalMinutos);
-  const hh = String(fecha.getHours()).padStart(2, '0');
-  const mm = String(fecha.getMinutes()).padStart(2, '0');
+  const hora = parseInt(fechaHora.substring(11, 13));
+  const minuto = parseInt(fechaHora.substring(14, 16));
+
+  const totalInicial = hora * 60 + minuto;
+  const totalFinal = totalInicial + duracion + buffer;
+
+  const hh = String(Math.floor(totalFinal / 60) % 24).padStart(2, '0');
+  const mm = String(totalFinal % 60).padStart(2, '0');
+
   return `${hh}:${mm}`;
 };
 
 const formatearFechaHora = (fechaHora) => {
-  const fecha = new Date(fechaHora);
-  const dia = String(fecha.getDate()).padStart(2, '0');
-  const mes = String(fecha.getMonth() + 1).padStart(2, '0');
-  const anio = fecha.getFullYear();
-  const hh = String(fecha.getHours()).padStart(2, '0');
-  const mm = String(fecha.getMinutes()).padStart(2, '0');
-  return `${dia}/${mes}/${anio} ${hh}:${mm}`;
+  const dia = fechaHora.substring(8, 10);
+  const mes = fechaHora.substring(5, 7);
+  const anio = fechaHora.substring(0, 4);
+  const hora = fechaHora.substring(11, 16);
+
+  return `${dia}/${mes}/${anio} ${hora}`;
 };
 
 const formatearHoraInicio = (fechaHora) => {
-  const fecha = new Date(fechaHora);
-  const hh = String(fecha.getHours()).padStart(2, '0');
-  const mm = String(fecha.getMinutes()).padStart(2, '0');
-  return `${hh}:${mm}`;
+  return fechaHora.substring(11, 16);
 };
 
 const ElementoSolicitudTurno = ({ solicitud, onAceptar, onRechazar, onCancelar }) => {

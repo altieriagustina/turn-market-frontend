@@ -64,16 +64,13 @@ const Horarios = ({ selectedDate, onTimeSelect }) => {
         const fechaSeleccionada = formatDate(selectedDate);
 
         const turnosDelDia = (data.confirmados || []).filter(turno => {
-          const fechaTurnoDate = new Date(turno.fecha_hora);
-          const fechaTurno = `${fechaTurnoDate.getFullYear()}-${String(fechaTurnoDate.getMonth() + 1).padStart(2, '0')}-${String(fechaTurnoDate.getDate()).padStart(2, '0')}`;
-          return fechaTurno === fechaSeleccionada;
+          return turno.fecha_hora.substring(0, 10) === fechaSeleccionada;
         });
 
         const bloqueados = new Set();
 
         turnosDelDia.forEach(turno => {
-          const inicio = new Date(turno.fecha_hora);
-          const horaInicio = inicio.getHours();
+          const horaInicio = Number(turno.fecha_hora.substring(11, 13));
 
           if (!turno.horaFin) {
             bloqueados.add(horaInicio);

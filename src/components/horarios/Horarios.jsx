@@ -128,6 +128,15 @@ const Horarios = ({ selectedDate, onTimeSelect }) => {
 
     const data = await res.json();
     console.log(data);
+    
+    // Si la respuesta no es exitosa, lanzar un error
+    if (!res.ok) {
+      const error = new Error(data.message || 'Error al crear el turno');
+      error.status = res.status;
+      error.data = data;
+      throw error;
+    }
+    
     return data;
   };
 
@@ -159,6 +168,23 @@ const Horarios = ({ selectedDate, onTimeSelect }) => {
       navigate("/confirmacion");
     } catch (error) {
       console.log(error);
+      
+      // Mostrar mensaje de error al usuario
+      let titulo = 'Error al crear el turno';
+      let mensaje = error.message || 'Hubo un error al procesar tu solicitud';
+      
+      // Si es un error de solapamiento
+      if (error.status === 409 || error.data?.tipo === 'SOLAPAMIENTO_TURNO') {
+        titulo = 'Horario no disponible';
+        mensaje = error.message || 'Este horario se solapa con otro turno confirmado';
+      }
+      
+      Swal.fire({
+        icon: 'error',
+        title: titulo,
+        text: mensaje,
+        confirmButtonColor: '#d33',
+      });
     } finally {
       setLoading(false);
     }

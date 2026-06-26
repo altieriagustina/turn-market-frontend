@@ -3,11 +3,15 @@ import React from 'react';
 const formatearTiempo = (cita) => {
   const fecha = new Date(cita.fecha_hora);
 
-  const fechaStr = fecha.toLocaleDateString("es-AR");
-  const horaInicio = fecha.toLocaleTimeString("es-AR", {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
+  const dia = String(fecha.getDate()).padStart(2, '0');
+  const mes = String(fecha.getMonth() + 1).padStart(2, '0'); // Los meses van de 0 a 11
+  const anio = fecha.getFullYear();
+  const fechaStr = `${dia}/${mes}/${anio}`;
+
+  const horas = String(fecha.getHours()).padStart(2, '0');
+  const minutos = String(fecha.getMinutes()).padStart(2, '0');
+  const horaInicio = `${horas}:${minutos}`;
+
   return cita.horaFin
     ? `${fechaStr} • ${horaInicio} - ${cita.horaFin}`
     : `${fechaStr} • ${horaInicio}`;

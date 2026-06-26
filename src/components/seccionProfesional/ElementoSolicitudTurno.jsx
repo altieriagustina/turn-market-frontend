@@ -1,38 +1,31 @@
 import React, { useState } from 'react';
 
 const calcularHoraFin = (fechaHora, duracion, buffer) => {
-  const fecha = new Date(fechaHora);
+  const hora = parseInt(fechaHora.substring(11, 13));
+  const minuto = parseInt(fechaHora.substring(14, 16));
 
-  const totalMinutos =
-    fecha.getHours() * 60 +
-    fecha.getMinutes() +
-    duracion +
-    buffer;
+  const totalInicial = hora * 60 + minuto;
+  const totalFinal = totalInicial + duracion + buffer;
 
-  const hh = String(Math.floor(totalMinutos / 60) % 24).padStart(2, "0");
-  const mm = String(totalMinutos % 60).padStart(2, "0");
+  const hh = String(Math.floor(totalFinal / 60) % 24).padStart(2, '0');
+  const mm = String(totalFinal % 60).padStart(2, '0');
 
   return `${hh}:${mm}`;
 };
 
 const formatearFechaHora = (fechaHora) => {
-  const fecha = new Date(fechaHora);
+  const dia = fechaHora.substring(8, 10);
+  const mes = fechaHora.substring(5, 7);
+  const anio = fechaHora.substring(0, 4);
+  const hora = fechaHora.substring(11, 16);
 
-  return fecha.toLocaleString("es-AR", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  });
+  return `${dia}/${mes}/${anio} ${hora}`;
 };
 
 const formatearHoraInicio = (fechaHora) => {
-  return new Date(fechaHora).toLocaleTimeString("es-AR", {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
+  return fechaHora.substring(11, 16);
 };
+
 const ElementoSolicitudTurno = ({ solicitud, onAceptar, onRechazar, onCancelar }) => {
 
   const [panelAbierto, setPanelAbierto] = useState(false);

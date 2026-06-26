@@ -89,16 +89,36 @@ const PanelProfesional = () => {
   const manejarAceptar = async (id, estimacion) => {
     const resultado = await actualizarTurno(id, "confirmado", estimacion);
 
-    if (resultado.ok) return;
+    // Si fue exitoso, mostrar confirmación
+    if (resultado.ok) {
+      Swal.fire({
+        icon: 'success',
+        title: 'Turno confirmado',
+        text: `El turno se confirmó exitosamente de ${estimacion.horaFin} con estimación de ${estimacion.duracionEstimada} minutos.`,
+        timer: 2200,
+        showConfirmButton: false,
+      });
+      return;
+    }
+
+    // Obtener el mensaje de error
+    const extraerMensajeError = () => {
+      if (!resultado.data) return null;
+      // Intentar extraer de diferentes formas
+      return resultado.data.message || resultado.data.msg || null;
+    };
+
+    const mensajeError = extraerMensajeError();
 
     // Conflicto de horario: el backend detectó que se superpone con otro turno ya confirmado
     if (resultado.status === 409) {
-      const mensaje = resultado.data?.message || "El horario elegido se superpone con otro turno ya confirmado.";
+      const mensajeFinal = mensajeError || "El horario elegido se superpone con otro turno ya confirmado.";
+      console.error('Error de solapamiento 409:', resultado.data);
 
       const eleccion = await Swal.fire({
         icon: 'warning',
         title: 'Horario no disponible',
-        text: mensaje,
+        text: mensajeFinal,
         showDenyButton: true,
         showCancelButton: true,
         confirmButtonText: 'Rechazar este turno',
@@ -110,7 +130,7 @@ const PanelProfesional = () => {
 
       if (eleccion.isConfirmed) {
         const rechazo = await actualizarTurno(id, "rechazado", {
-          motivoRechazo: `Turno no disponible: ${mensaje}`,
+          motivoRechazo: `Turno no disponible: ${mensajeFinal}`,
         });
         if (rechazo.ok) {
           Swal.fire({
@@ -132,10 +152,13 @@ const PanelProfesional = () => {
     }
 
     // Cualquier otro error inesperado
+    const mensajeFinal = mensajeError || 'Ocurrió un error al confirmar el turno. Intentá nuevamente.';
+    console.error('Error al confirmar turno:', resultado);
+    
     Swal.fire({
       icon: 'error',
       title: 'No se pudo confirmar el turno',
-      text: resultado.data?.message || 'Ocurrió un error al confirmar el turno. Intentá nuevamente.',
+      text: mensajeFinal,
     });
   };
 

@@ -203,7 +203,7 @@ const Horarios = ({ selectedDate, onTimeSelect }) => {
           Estás pidiendo un turno para el {selectedDate.toLocaleDateString()}
         </h3>
 
-        <h3>
+        <h3 className='contenedor-mensaje-descripcion'>
           Describí brevemente el motivo del turno y direccion de tu domicilio para que el profesional pueda prepararse para tu visita.
         </h3>
 

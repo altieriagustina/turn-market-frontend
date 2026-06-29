@@ -449,3 +449,37 @@
       width: 100%;
     }
   }
+
+  @media (max-width: 550px) {
+    .estado-acciones {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.5rem;
+      min-width: unset;
+    }
+
+    .botones-accion {
+      flex-direction: column;
+      width: 100%;
+      justify-content: stretch;
+      gap: 0.5rem;
+    }
+
+    .boton {
+      width: 100%;
+      min-width: 0;
+      padding: 0.65rem 1rem;
+    }
+
+    .detalles-cita {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.35rem;
+    }
+
+    .chip-tiempo {
+      display: inline-block;
+      max-width: 100%;
+      white-space: normal;
+    }
+  }

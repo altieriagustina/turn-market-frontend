@@ -186,6 +186,7 @@
     .contenedor-estadisticas {
         padding: 14px;
         gap: 12px;
+        flex-direction: row;
     }
 
     .contenedor-card-estadistica {

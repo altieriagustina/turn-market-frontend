@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 
-const calcularHoraFin = (fechaHora, duracion, buffer) => {
-  const hora = parseInt(fechaHora.substring(11, 13));
-  const minuto = parseInt(fechaHora.substring(14, 16));
+const TZ = 'America/Argentina/Buenos_Aires';
 
-  const totalInicial = hora * 60 + minuto;
-  const totalFinal = totalInicial + duracion + buffer;
+const calcularHoraFin = (fechaHora, duracion, buffer) => {
+  // Extraemos la hora en timezone Argentina para no operar sobre UTC
+  const horaStr = new Date(fechaHora).toLocaleTimeString('es-AR', {
+    hour: '2-digit', minute: '2-digit', hour12: false,
+    timeZone: TZ,
+  });
+  const [hora, minuto] = horaStr.split(':').map(Number);
+
+  const totalFinal = hora * 60 + minuto + duracion + buffer;
 
   const hh = String(Math.floor(totalFinal / 60) % 24).padStart(2, '0');
   const mm = String(totalFinal % 60).padStart(2, '0');
@@ -14,16 +19,23 @@ const calcularHoraFin = (fechaHora, duracion, buffer) => {
 };
 
 const formatearFechaHora = (fechaHora) => {
-  const dia = fechaHora.substring(8, 10);
-  const mes = fechaHora.substring(5, 7);
-  const anio = fechaHora.substring(0, 4);
-  const hora = fechaHora.substring(11, 16);
-
-  return `${dia}/${mes}/${anio} ${hora}`;
+  const fecha = new Date(fechaHora);
+  const fechaStr = fecha.toLocaleDateString('es-AR', {
+    day: '2-digit', month: '2-digit', year: 'numeric',
+    timeZone: TZ,
+  });
+  const horaStr = fecha.toLocaleTimeString('es-AR', {
+    hour: '2-digit', minute: '2-digit', hour12: false,
+    timeZone: TZ,
+  });
+  return `${fechaStr} ${horaStr}`;
 };
 
 const formatearHoraInicio = (fechaHora) => {
-  return fechaHora.substring(11, 16);
+  return new Date(fechaHora).toLocaleTimeString('es-AR', {
+    hour: '2-digit', minute: '2-digit', hour12: false,
+    timeZone: TZ,
+  });
 };
 
 const ElementoSolicitudTurno = ({ solicitud, onAceptar, onRechazar, onCancelar }) => {

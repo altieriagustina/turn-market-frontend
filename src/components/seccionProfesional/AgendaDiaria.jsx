@@ -25,12 +25,20 @@ const AgendaDiaria = ({ citasDiarias }) => {
   );
 };
 
+const TZ = 'America/Argentina/Buenos_Aires';
+
 const formatearTiempo = (cita) => {
-  const fechaHora = cita.fecha_hora;
+  const fecha = new Date(cita.fecha_hora);
 
-  const fechaStr = `${fechaHora.substring(8, 10)}/${fechaHora.substring(5, 7)}/${fechaHora.substring(0, 4)}`;
+  const fechaStr = fecha.toLocaleDateString('es-AR', {
+    day: '2-digit', month: '2-digit', year: 'numeric',
+    timeZone: TZ,
+  });
 
-  const horaInicio = fechaHora.substring(11, 16);
+  const horaInicio = fecha.toLocaleTimeString('es-AR', {
+    hour: '2-digit', minute: '2-digit', hour12: false,
+    timeZone: TZ,
+  });
 
   return cita.horaFin
     ? `${fechaStr} • ${horaInicio} - ${cita.horaFin}`
